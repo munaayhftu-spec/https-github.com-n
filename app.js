@@ -13,6 +13,6 @@ document.getElementById('searchBtn').onclick=async()=>{
   const r=document.getElementById('searchResults');
    if(!q)return;
     r.innerHTML='جاري البحث... 🔎';
-     const d=await fetch('https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch='+encodeURIComponent(q)+'&gsrnamespace=6&gsrlimit=12&prop=imageinfo&iiprop=url&iiurlwidth=180&format=json&origin=*').then(x=>x.json());
+     const d=await fetch('https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch='+encodeURIComponent(q)+'&gsrnamespace=6&gsrlimit=30&prop=imageinfo&iiprop=url&iiurlwidth=180&format=json&origin=*').then(x=>x.json());
       r.innerHTML=Object.values(d.query?.pages||{}).map(p=>'<img src="'+p.imageinfo[0].thumburl+'" style="width:90px;height:90px;object-fit:cover;margin:5px;border-radius:10px">').join('')||'ما لقينا نتائج 😅';
       };h
