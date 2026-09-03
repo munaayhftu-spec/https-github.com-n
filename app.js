@@ -15,4 +15,15 @@ document.getElementById('searchBtn').onclick=async()=>{
     r.innerHTML='جاري البحث... 🔎';
      const d=await fetch('https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch='+encodeURIComponent(q)+'&gsrnamespace=6&gsrlimit=30&prop=imageinfo&iiprop=url&iiurlwidth=180&format=json&origin=*').then(x=>x.json());
       r.innerHTML=Object.values(d.query?.pages||{}).map(p=>'<img src="'+p.imageinfo[0].thumburl+'" style="width:90px;height:90px;object-fit:cover;margin:5px;border-radius:10px">').join('')||'ما لقينا نتائج 😅';
-      };h
+  document.getElementById('searchResults').onclick=e=>{
+      if(e.target.tagName!=='IMG')return;
+        let im=new Image();
+          im.crossOrigin='anonymous';
+            im.onload=()=>{
+                let s=Math.min(330/im.width,300/im.height,1);
+                    x.drawImage(im,180-im.width*s/2,170,im.width*s,im.height*s);
+                        alert('💗 تم إضافة الصورة للتصميم');
+                          };
+                            im.src=e.target.src;
+                            };
+  }    };h
