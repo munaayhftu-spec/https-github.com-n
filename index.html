@@ -1,1 +1,79 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>تصميمي منوش</title><link rel="stylesheet" href="style.css"></head><body><header><div class="brand">🌸 تصميمي منوش</div><nav><button onclick="show('home')">الرئيسية</button><button onclick="show('editor')">🎨 المحرر</button><button onclick="show('designs')">📂 تصاميمي</button></nav></header><main><section id="home" class="page active"><div class="hero"><div><p>🎨 موقعك الإبداعي</p><h1>صمّم فكرتك بطريقتك 💗</h1><p>أنشئ تصاميم وخلفيات بسهولة.</p><button class="primary" onclick="show('editor')">➕ ابدأ تصميمًا جديدًا</button></div><div class="preview">🌷<br><b>تصميمي<br>منوش</b></div></div><h2>✨ أمثلة التصميمات</h2><div class="cards"><article class="card"><div class="thumb pink">🌸</div><b>وردي ناعم</b><button onclick="show('editor')">استخدام</button></article><article class="card"><div class="thumb green">🌿</div><b>نباتي</b><button onclick="show('editor')">استخدام</button></article><article class="card"><div class="thumb purple">🎀</div><b>لطيف</b><button onclick="show('editor')">استخدام</button></article></div></section><section id="editor" class="page"><div class="editor-head"><button onclick="show('home')">← رجوع</button><h2>🎨 محرر التصميم</h2><button class="primary" onclick="saveDesign()">💾 حفظ</button></div><div class="editor"><aside class="tools"><button onclick="addText()">✍️ نص</button><label>🖼️ صورة<input id="image" type="file" accept="image/*"></label><button onclick="addHeart()">💗 عنصر</button><button onclick="changeBg()">🎨 خلفية</button><button onclick="clearCanvas()">🗑️ مسح</button><button onclick="download()">⬇️ تنزيل</button></aside><div class="canvasbox"><canvas id="canvas" width="360" height="640"></canvas></div></div></section><section id="designs" class="page"><h2>📂 تصاميمي</h2><div id="list" class="cards"></div></section></main><footer>🌸 تصميمي منوش — V1</footer><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>تصميمي منوش 🌸</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#fff0f6;color:#6b4055}
+header{padding:25px 18px;text-align:center;background:linear-gradient(135deg,#ffd6e7,#fff)}
+h1{margin:0;color:#d45b91;font-size:32px}
+p{font-size:18px}
+.hero{padding:45px 20px;text-align:center}
+button{border:0;border-radius:18px;padding:15px 24px;background:#e987b2;color:white;font-size:17px;cursor:pointer}
+.editor{margin:20px auto;padding:20px;max-width:500px;text-align:center}
+.canvas{height:420px;border-radius:28px;background:linear-gradient(#ffe1ed,#fff);box-shadow:0 8px 25px #d99ab833;display:flex;align-items:center;justify-content:center;font-size:28px;color:#d45b91}
+.tools{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.card{display:inline-block;background:white;margin:8px;padding:20px;border-radius:20px;box-shadow:0 5px 15px #d99ab833}
+footer{text-align:center;padding:30px;color:#a56b84}
+</style>
+</head>
+<body>
+
+<header>
+<h1>🌸 تصميمي منوش</h1>
+<p>حوّلي أفكارك إلى تصاميم جميلة 💗</p>
+</header>
+
+<section class="hero">
+<h2>صممي فكرتك بطريقتك ✨</h2>
+<p>أنشئي خلفيات وصور جميلة بكل سهولة.</p>
+<button onclick="document.getElementById('editor').scrollIntoView()">➕ ابدأي تصميمك الآن</button>
+</section>
+
+<section id="editor" class="editor">
+<h2>🎨 محرر التصميم</h2>
+<div id="canvas" class="canvas">🌷 تصميمي منوش 💗</div>
+
+<div class="tools">
+<button onclick="addText()">✏️ إضافة نص</button>
+<button onclick="changeBg()">🎨 تغيير الخلفية</button>
+<button onclick="downloadDesign()">⬇️ تحميل</button>
+</div>
+</section>
+
+<section style="text-align:center;padding:20px">
+<h2>💗 أفكار جاهزة</h2>
+<div class="card">🌸 وردي ناعم</div>
+<div class="card">🌿 نباتي</div>
+<div class="card">🦋 لطيف</div>
+<div class="card">✨ اقتباسات</div>
+</section>
+
+<footer>
+🌷 تصميمي منوش — صمميها بطريقتك 💗
+</footer>
+
+<script>
+function addText(){
+let t=prompt("اكتبي النص الذي تريدينه 💗");
+if(t) document.getElementById("canvas").innerText=t;
+}
+function changeBg(){
+let colors=["#ffe1ed","#ffd6e7","#f8e1ff","#e1f7f0","#fff0c9"];
+let c=colors[Math.floor(Math.random()*colors.length)];
+document.getElementById("canvas").style.background=c;
+}
+function downloadDesign(){
+let text=document.getElementById("canvas").innerText;
+let blob=new Blob([text],{type:"text/plain"});
+let a=document.createElement("a");
+a.href=URL.createObjectURL(blob);
+a.download="تصميمي-منوش.txt";
+a.click();
+}
+</script>
+
+</body>
+</html>
