@@ -67,7 +67,7 @@ document.getElementById("canvas").style.background=c;
 function downloadDesign(){
 let text=document.getElementById("canvas").innerText;
 let blob=new Blob([text],{type:"text/plain"});
-let a=document.createElement("a");
+
 a.href=URL.createObjectURL(blob);
 a.download="تصميمي-منوش.txt";
 a.click();
