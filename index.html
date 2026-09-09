@@ -72,7 +72,7 @@ a.href=URL.createObjectURL(blob);
 a.download="تصميمي-منوش.txt";
 a.click();
 }
-</script>
+</script>document.getElementById("image").onchange=function(){let f=this.files[0];if(f){let c=document.getElementById("canvas");c.style.backgroundImage="url("+URL.createObjectURL(f)+")";c.style.backgroundSize="contain";c.style.backgroundRepeat="no-repeat";c.style.backgroundPosition="center";}}
 
 </body>
 </html>
