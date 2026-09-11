@@ -224,7 +224,7 @@
       image.src = URL.createObjectURL(file);
     }
 
-    function downloadDesign() {
+    function downloadDesign() {saveDesign();
       const link = document.createElement("a");
 
       link.download = "تصميمي-منوش.png";
@@ -232,7 +232,16 @@
 
       link.click();
     }
-  </script>
+  </script>function saveDesign() {
+  const saved = localStorage.getItem("myDesigns") || "[]";
+  const designs = JSON.parse(saved);
+
+  designs.push(canvas.toDataURL("image/png"));
+
+  localStorage.setItem("myDesigns", JSON.stringify(designs));
+
+  alert("💗 تم حفظ التصميم!");
+}
 
 </body>
 </html>
