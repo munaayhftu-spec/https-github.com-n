@@ -232,13 +232,13 @@
 
      link.click();}
 </script>
- function saveDesign() {
-  const saved = JSON.parse(localStorage.getItem("manoushDesigns") || "[]");
-  saved.push(canvas.toDataURL("image/png"));
-  localStorage.setItem("manoushDesigns", JSON.stringify(saved));
-  showSavedDesigns();
-  alert("تم حفظ التصميم في تصاميمي 💗");
-}
+ 235  function saveDesign() {
+236    const saved = ...
+237    saved.push(...)
+238    localStorage.setItem(...)
+239    showSavedDesigns();
+240    alert("تم حفظ التصميم في تصاميمي 💗");
+241  }
 
 function showSavedDesigns() {
   const box = document.getElementById("savedDesigns");
