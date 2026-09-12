@@ -133,7 +133,7 @@
       >
 
       <button onclick="downloadDesign()">⬇️ تحميل</button>
-
+<button onclick="saveDesign()">💗 حفظ في تصاميمي</button>
     </div>
   </section><section class="my-designs">
   <h2>💗 تصاميمي</h2>
@@ -232,7 +232,31 @@
 
      link.click();}
 </script>
- 
+ function saveDesign() {
+  const saved = JSON.parse(localStorage.getItem("manoushDesigns") || "[]");
+  saved.push(canvas.toDataURL("image/png"));
+  localStorage.setItem("manoushDesigns", JSON.stringify(saved));
+  showSavedDesigns();
+  alert("تم حفظ التصميم في تصاميمي 💗");
+}
+
+function showSavedDesigns() {
+  const box = document.getElementById("savedDesigns");
+  box.innerHTML = "";
+
+  const saved = JSON.parse(localStorage.getItem("manoushDesigns") || "[]");
+
+  saved.forEach(function(src) {
+    const img = document.createElement("img");
+    img.src = src;
+    img.style.width = "150px";
+    img.style.margin = "10px";
+    img.style.borderRadius = "15px";
+    box.appendChild(img);
+  });
+}
+
+showSavedDesigns();
 </body/>
   
   
