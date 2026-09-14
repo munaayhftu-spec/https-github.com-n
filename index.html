@@ -245,7 +245,12 @@ function saveDesign() {
   saved.forEach(function(src) {
     const img = document.createElement("img");
     img.src = src;
-    img.style.width = "150px";
+img.onclick = function() {    
+    };
+  iwindow.open(src);
+      mg.style.width = "150px";
+    
+  
     img.style.margin = "10px";
     img.style.borderRadius = "15px";
     box.appendChild(img);
