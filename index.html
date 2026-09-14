@@ -229,7 +229,7 @@
 
       link.download = "تصميمي-منوش.png";
       link.href = canvas.toDataURL("image/png");
-
+showSavedDesigns();
      link.click();}
 function saveDesign() {
   const saved = JSON.parse(localStorage.getItem("manoushDesigns") || "[]");
