@@ -183,6 +183,18 @@ const font = document.getElementById("textFont").value;
     resetDesign();
 
     function addText() {
+  const text = prompt("اكتبي النص الذي تريدينه 💗");
+  const size = document.getElementById("textSize").value;
+  const color = document.getElementById("textColor").value;
+  const font = document.getElementById("textFont").value;
+
+  if (text) {
+    ctx.textAlign = "center";
+    ctx.fillStyle = color;
+    ctx.font = "bold " + size + "px " + font;
+    ctx.fillText(text, 150, 430);
+  }
+    }
       ctx.font = "bold " + size + "px " + font;
 const size = document.getElementById("textSize").value;
 const color = document.getElementById("textColor").value;
