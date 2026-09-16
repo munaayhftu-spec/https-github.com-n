@@ -224,14 +224,24 @@
       image.src = URL.createObjectURL(file);
     }
 
-   function downloadDesign() {
-      const link = document.createElement("a");
+function downloadDesign() {
+  const link = document.createElement("a");
 
-      link.download = "تصميمي-منوش.png";
-      link.href = canvas.toDataURL("image/png");
-   }
-   link.click();  
+  canvas.toBlob(function(blob) {
+    const url = URL.createObjectURL(blob);
 
+    link.href = url;
+    link.download = "تصميمي-منوش.png";
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    setTimeout(function() {
+      URL.revokeObjectURL(url);
+    }, 1000);
+  }, "image/png");
+}
      function saveDesign() {
   const saved = JSON.parse(localStorage.getItem("manoushDesigns") || "[]");
   saved.push(canvas.toDataURL("image/png"));
