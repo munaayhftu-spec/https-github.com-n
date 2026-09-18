@@ -113,7 +113,11 @@
     <div class="canvas">
       <canvas id="designCanvas" width="300" height="500"></canvas>
     </div>
-
+<div>
+  <button onclick="setSize(300, 500)">📱 جوال</button>
+  <button onclick="setSize(300, 533)">📸 ستوري</button>
+  <button onclick="setSize(500, 500)">⬜ مربع</button>
+</div>
     <div class="tools">
 
       <button onclick="addText()">✏️ إضافة نص</button>
@@ -215,6 +219,18 @@ function addReadySticker(sticker) {
   ctx.textAlign = "center";
   ctx.fillText(sticker, 150, 300);
 }
+function setSize(width, height) {
+  canvas.width = width;
+  canvas.height = height;
+  resetDesign();
+}
+
+function changeBg() {
+    function setSize(width, height) {
+  canvas.width = width;
+  canvas.height = height;
+  resetDesign();
+}   
     function changeBg() {
       const color = prompt(
         "اكتبي لون الخلفية، مثال: #ffdce9",
