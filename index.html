@@ -133,7 +133,14 @@
       <button onclick="document.getElementById('imageInput').click()">
         🖼️ إضافة صورة
       </button>
-<button onclick="addSticker()">🌸 إضافة ملصق</button>
+
+      <div>
+  <button onclick="addReadySticker('🌸')">🌸</button>
+  <button onclick="addReadySticker('🎀')">🎀</button>
+  <button onclick="addReadySticker('🦋')">🦋</button>
+  <button onclick="addReadySticker('✨')">✨</button>
+  <button onclick="addReadySticker('💗')">💗</button>
+      </div><button onclick="addSticker()">🌸 إضافة ملصق</button>
       <input
         id="imageInput"
         type="file"
@@ -203,7 +210,11 @@
     ctx.fillText(sticker, 150, 300);
   }
   }  
-
+function addReadySticker(sticker) {
+  ctx.font = "55px Arial";
+  ctx.textAlign = "center";
+  ctx.fillText(sticker, 150, 300);
+}
     function changeBg() {
       const color = prompt(
         "اكتبي لون الخلفية، مثال: #ffdce9",
