@@ -219,21 +219,18 @@ function addReadySticker(sticker) {
   ctx.textAlign = "center";
   ctx.fillText(sticker, 150, 300);
 }
-
-
-function changeBg() {
-    function setSize(width, height) {
+function setSize(width, height) {
   canvas.width = width;
   canvas.height = height;
-  canvas.style.width = width + "px";
-  canvas.style.height = height + "px";
-
+   canvas.style.width = width + "px";
+    canvas.style.height = height + "px";
   const box = canvas.parentElement;
   box.style.width = width + "px";
   box.style.height = height + "px";
-
-  resetDesign();
-    }
+ resetDesign();
+}
+  function changeBg() {
+   
     function changeBg() {
       const color = prompt(
         "اكتبي لون الخلفية، مثال: #ffdce9",
