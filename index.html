@@ -287,9 +287,6 @@ function downloadDesign() {
 
     setTimeout(function() {
       URL.revokeObjectURL(url);
-    }, 1000);
-  }, "image/png");
-}
      function saveDesign() {
   const saved = JSON.parse(localStorage.getItem("manoushDesigns") || "[]");
   saved.push(canvas.toDataURL("image/png"));
