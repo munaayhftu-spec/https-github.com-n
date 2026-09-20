@@ -257,8 +257,7 @@ function setSize(width, height) {
           canvas.width / image.width,
           canvas.height / image.height
         );
-
-       function downloadDesign() {
+function downloadDesign() {
   const link = document.createElement("a");
 
   canvas.toBlob(function(blob) {
@@ -272,6 +271,9 @@ function setSize(width, height) {
 
     setTimeout(function() {
       URL.revokeObjectURL(url);
+    }, 1000);
+  });
+}
     }, 1000);
   });
        } 
