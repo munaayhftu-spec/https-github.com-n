@@ -220,12 +220,24 @@ function addReadySticker(sticker) {
   ctx.fillText(sticker, 150, 300);
 }
 function setSize(width, height) {
+  function changeBg() {
+  const color = prompt("اكتبي لون الخلفية، مثال: #ffdce9", "#ffdce9");
+  if (color) {
+    ctx.fillStyle = color;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  }
+  }
   canvas.width = width;
   canvas.height = height;
    canvas.style.width = width + "px";
-    canvas.style.height = height + "px";
-  const box = canvas.parentElement;
-  box.style.width = width + "px";
+   const color = prompt("اكتبي لون الخلفية، مثال: #ffdce9", "#ffdce9");
+ if (color) {
+  ctx.fillStyle = color;
+   canvas.style.height = height + "px";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+ }
+   const box = canvas.parentElement;
+} box.style.width = width + "px";
   box.style.height = height + "px";
  resetDesign();
 }
