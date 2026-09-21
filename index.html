@@ -268,17 +268,12 @@ function setSize(width, height) {
   resetDesign();
 }
 
-function changeBg() {
-  const color = prompt(
-    "اكتبي لون الخلفية، مثال: #ffdce9",
-    "#ffdce9"
-  );
-
+function changeBg(color) {
   if (color) {
     ctx.fillStyle = color;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
   }
-}
+    }
 
 function addImage(event) {
   const file = event.target.files[0];
