@@ -356,7 +356,10 @@ function showSavedDesigns() {
     img.style.width = "150px";
     img.style.margin = "10px";
     img.style.borderRadius = "15px";
-
+img.style.cursor = "pointer";
+img.onclick = function() {
+  window.open(src, "_blank");
+};
     box.appendChild(img);
   });
 }
