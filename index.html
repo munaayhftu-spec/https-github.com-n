@@ -444,10 +444,18 @@ function setSize(width, height) {
   box.style.height = height + "px";
  resetDesign();
 }
-  function changeBg() {
+ 
+ 
+}   
+ 
+    , 0, canvas.width, canvas.height);
+}   
+    
+    function changeBg() {
 function addImage(event) {
-  const file = event.target.files[0];
-
+  const color = prompt("اكتبي لون الخلفية، مثال: #ffdce9", "#ffdce9"); if (color) { ctx.fillStyle = color; ctx.fillRect(0, 0, canvas.width, canvas.height); } }
+const file = event.target.files[0];
+function addImage(event) {
   if (!file) return;
 
   const image = new Image();
