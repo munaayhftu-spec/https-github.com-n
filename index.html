@@ -481,68 +481,7 @@ function addImage(event) {
 }
 
 function downloadDesign() {
-  const link = document.createElement("a");
-
-  canvas.toBlob(function(blob) {
-    const url = URL.createObjectURL(blob);
-
-    link.href = url;
-    link.download = "تصميمي-منوش.png";
-
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-
-    setTimeout(function() {
-      URL.revokeObjectURL(url);
-    }, 1000);
-  });
-}
-
-function saveDesign() {
-  const saved = JSON.parse(
-    localStorage.getItem("manoushDesigns") || "[]"
-  );
-
-  saved.push(canvas.toDataURL("image/png"));
-  localStorage.setItem("manoushDesigns", JSON.stringify(saved));
-
-  alert("تم حفظ التصميم في تصاميمي 💗");
-}
-
-function showSavedDesigns() {
-  const box = document.getElementById("savedDesigns");
-  box.innerHTML = "";
-
-  const saved = JSON.parse(
-    localStorage.getItem("manoushDesigns") || "[]"
-  );
-;
-
-function clearDesigns() {
-  localStorage.removeItem("manoushDesigns");
-  showSavedDesigns();
-}   
-    
-    const img = document.createElement("img");
-    img.src = src;
-img.onclick = function() {    
-    };
-  iwindow.open(src);
-      mg.style.width = "150px";
-    
   
-    img.style.margin = "10px";
-    img.style.borderRadius = "15px";
-    box.appendChild(img);
-  });
-}
-
-showSavedDesigns();
-function clearDesigns() {
-  localStorage.removeItem("manoushDesigns");
-  showSavedDesigns();
-}
   
   </script>  
 
