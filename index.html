@@ -46,7 +46,7 @@
       overflow: hidden;
       display: flex;
       align-items: center;
-      justify-content: center;
+      <button onclick="document.getElementById('imageInput').click()">
       font-size: 28px;
       box-shadow: 0 8px 25px rgba(180, 80, 130, 0.15);
     }
@@ -183,13 +183,13 @@
       </div>
         <div>  
       </div><button onclick="addSticker()">🌸 إضافة ملصق</button>
-      <input
-        id="Input"accept=".jpg,.jpeg,.png,.webp"
-        type="file"
-        accept="image/*"
-        style="display:none"
-        onchange="addImage(event)"
-      >
+     <input
+  id="imageInput"
+  type="file"
+  accept=".jpg,.jpeg,.png,.webp"
+  style="display:none"
+  onchange="addImage(event)"
+>
 <h3>💾 حفظ وتحميل التصميم 💗</h3>
       <button onclick="downloadDesign()">⬇️ تحميل</button>
 <button onclick="saveDesign()">💗 حفظ في تصاميمي</button>
