@@ -191,7 +191,8 @@
   onchange="addImage(event)"
 >
 <button onclick="resetDesign()">🗑️ مسح التصميم</button>      
-<h3>💾 حفظ وتحميل التصميم 💗</h3>
+<button onclick="removeImage()">🖼️ مسح الصورة</button>
+      <h3>💾 حفظ وتحميل التصميم 💗</h3>
       <button onclick="downloadDesign()">⬇️ تحميل</button>
 <button onclick="saveDesign()">💗 حفظ في تصاميمي</button>
     </div>
@@ -279,15 +280,15 @@ function changeBg(color) {
     ctx.fillStyle = color;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
   }
-    }
-
+   }
+let previousDesign = null;
 function addImage(event) {
   const file = event.target.files[0];
 
   if (!file) return;
 
   const image = new Image();
-
+previousDesign = ctx.getImageData(0, 0, canvas.width, canvas.height);
   image.onload = function() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -309,7 +310,11 @@ function addImage(event) {
 
   image.src = URL.createObjectURL(file);
 }
-
+function removeImage() {
+  if (previousDesign) {
+    ctx.putImageData(previousDesign, 0, 0);
+  }
+}
 function downloadDesign() {
   canvas.toBlob(function(blob) {
     const url = URL.createObjectURL(blob);
